@@ -9,12 +9,18 @@ module.exports = {
     },
     entry: './src/index.js',
     mode: 'development',
+    devtool: 'inline-source-map',
+    devServer: {
+      static: './dist',
+      open: true, // автоматически открывает браузер
+      port: 3000, // порт, на котором будет работать dev server
+    },
     module: {
         rules:  [
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: 'babel-loader'
+                loader: 'babel-loader',
             },
             {
                 test: /\.txt$/,
